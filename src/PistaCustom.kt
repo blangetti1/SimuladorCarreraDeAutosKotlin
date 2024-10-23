@@ -1,7 +1,6 @@
 open class PistaCustom (
     longitud: Int,
-     clima: String,
-
+    clima: String,
     )
 
     :Pista(longitud, clima )
@@ -31,8 +30,20 @@ open class PistaCustom (
         val climas = arrayListOf("niebla", "lluvia", "soleado", "normal")
         this.clima = climas.random()
     }
-    override fun aplicarEventoAleatorio(vehiculo: Vehiculo)
-    {
-        val eventosAleatorios = arrayListOf("Pinchazo","Fallo_Mecanico","Encontrar_Combustible" )
+    override fun aplicarEventoAleatorio(vehiculo: Vehiculo) {
+        val eventosAleatorios = arrayListOf("Pinchazo", "Fallo_Mecanico", "Encontrar_Combustible")
+        val evento = eventosAleatorios.random()
+
+        if (evento == "Pinchazo") {
+            vehiculo.frenar()
+        }
+        else if (evento == "Fallo_Mecanico")
+        {
+            vehiculo.velocidadActual=0
+        }
+        else if (evento == "Encontrar_Combustible"){
+           vehiculo.combustible*1.20
+        }
     }
+
 }
