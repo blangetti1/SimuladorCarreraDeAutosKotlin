@@ -4,7 +4,11 @@ open class VehiculoCustom (
 ): Vehiculo(nombre, velocidadMaxima, combustible, aceleracion, frenado) {
     override fun acelerar() {
         if (combustible > 0) {
-            velocidadActual = (velocidadActual + aceleracion).coerceAtMost(velocidadMaxima)
+            if (velocidadActual + aceleracion > velocidadMaxima) {
+                velocidadActual = velocidadMaxima
+            } else {
+                velocidadActual += aceleracion
+            }
             combustible -= 1
             println("El vehículo ha acelerado. Velocidad actual: $velocidadActual km/h, Combustible restante: $combustible")
         } else {
@@ -12,7 +16,11 @@ open class VehiculoCustom (
         }
     }
     override fun frenar() {
-        velocidadActual = (velocidadActual - frenado).coerceAtLeast(0)
+        if (velocidadActual - frenado < 0) {
+            velocidadActual = 0
+        } else {
+            velocidadActual -= frenado
+        }
         println("El vehículo ha frenado. Velocidad actual: $velocidadActual km/h")
     }
 
