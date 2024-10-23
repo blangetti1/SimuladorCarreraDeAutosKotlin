@@ -1,9 +1,5 @@
-class Camion(nombre: String,
-             velocidadMaxima: Int,
-             combustible: Int,
-             aceleracion: Int,
-             frenado: Int):
-    VehiculoCustom(nombre, velocidadMaxima, combustible, aceleracion, frenado)
+class Camion(nombre: String):
+    VehiculoCustom(nombre, velocidadMaxima=90, combustible=150, aceleracion=5, frenado=8)
 
 {
     override fun toString(): String {
