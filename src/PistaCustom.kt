@@ -34,5 +34,6 @@ open class PistaCustom (
     override fun aplicarEventoAleatorio(vehiculo: Vehiculo)
     {
         val eventosAleatorios = arrayListOf("Pinchazo","Fallo_Mecanico","Encontrar_Combustible" )
+
     }
 }
